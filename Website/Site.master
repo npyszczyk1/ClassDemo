@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -46,14 +46,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">DMIT 2018 Demo</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <%--Replace default menu with a new menu that inlcudes a dropdown list for SamplePages
+                        
+                        <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/SamplePages/FirstLinqSample">First Linq Sample</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
+                    </ul>--%>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -70,7 +73,30 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
+                    <%-- RePLACEMENT MENU 
+                        Two ways to create menu
+                        a) Use CPSC1517 technique of menu control, web.sitemap, and SiteMapDataSource control
+                        b) Code the menu control and content in this area
+                    --%>
+                    <asp:Menu ID="navMenu" runat="server" BackColor="Black" BorderColor="#FF9900" StaticMenuItemStyle-ForeColor="#999999"
+                        StaticMenuItemStyle-VerticalPadding="12px" StaticMenuItemStyle-HorizontalPadding="12px"
+                        RenderingMode="List" Orientation="Horizontal" DynamicMenuItemStyle-ForeColor="#999999" DynamicMenuItemStyle-BackColor="Black"
+                        StaticMenuItemStyle-Font-Size="Large" DynamicMenuItemStyle-Font-Size="Large" BorderWidth="2px" DynamicHoverStyle-BorderColor="#FF9900" DynamicHoverStyle-BorderWidth="1px">
+                        <Items>
+                            <asp:MenuItem Text="Home" NavigateUrl="~/"></asp:MenuItem>
+
+                            <asp:MenuItem Text="Queries">
+                                <asp:MenuItem Text="Albums by Artist" NavigateUrl="~/SamplePages/FirstLinqSample.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Albums by Year Range" NavigateUrl="~/SamplePages/AlbumsByYearRange.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
+
+                            <asp:MenuItem Text="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Contact" NavigateUrl="~/Contact.aspx"></asp:MenuItem>
+
+                        </Items>
+                    </asp:Menu>
                 </div>
+
             </div>
         </div>
         <div class="container body-content">

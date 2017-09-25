@@ -35,5 +35,20 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select,false)]
+        public List<Album> Albums_FindByYearRange(int minYear, int maxYear)
+        {
+            using (var context = new ChinookContext())
+            {
+                // This is not POCO since we are returning everything in the Album entity
+                var results = from x in context.Albums
+                              where x.ReleaseYear >= minYear && x.ReleaseYear <= maxYear
+                              orderby x.ReleaseYear, x.Title
+                              select x;
+
+                return results.ToList();
+            }
+        }
     }
 }
