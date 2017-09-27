@@ -14,6 +14,6 @@ namespace Chinook.Data.Entities
 
         [StringLength(120)]
         public string Name { get; set; }
-
+        public virtual ICollection<Track> Tracks { get; set; }
     }
 }

@@ -14,19 +14,21 @@ namespace Chinook.Data.Entities
         [Key]
         public int AlbumId { get; set; }
 
-        [Required(ErrorMessage ="Title is a required field.")]
-        [StringLength(160,ErrorMessage ="Title is limited to 160 characters.")]
+        [Required(ErrorMessage = "Title is a required field.")]
+        [StringLength(160, ErrorMessage = "Title is limited to 160 characters.")]
         public string Title { get; set; }
 
         public int ArtistId { get; set; }
 
         public int ReleaseYear { get; set; }
 
-        [StringLength(50,ErrorMessage ="Release Label is limited to 50 characters.")]
+        [StringLength(50, ErrorMessage = "Release Label is limited to 50 characters.")]
         public string ReleaseLabel { get; set; }
 
         // Navigation properties
-        // From child to parent
+        // From child (album) to parent (artist)
+        // Children are type of ICollection
         public virtual Artist Artist { get; set; }
+        public virtual ICollection<Track> Tracks {get; set;}
     }
 }
