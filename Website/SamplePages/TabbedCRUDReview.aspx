@@ -148,7 +148,8 @@
                                 </AlternatingItemTemplate>
                                 <EditItemTemplate>
                                     <tr style="background-color: #999999;">
-                                        <td> <!-- Bind instead ov Eval is for when you want to edit data -->
+                                        <td> <!-- Bind instead of Eval is for when you want to edit data.
+                                            SelectedValue attribute is used on dropdown lists and radio buttons -->
                                             <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" />
                                             <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
                                         </td>
