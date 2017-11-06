@@ -93,6 +93,7 @@
 
                             <asp:MenuItem Text="CRUD">
                                 <asp:MenuItem Text="Tabbed CRUD" NavigateUrl="~/SamplePages/TabbedCRUDReview.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="UX" NavigateUrl="~/SamplePages/ManagePlaylist.aspx"></asp:MenuItem>
                             </asp:MenuItem>
 
                             <asp:MenuItem Text="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
